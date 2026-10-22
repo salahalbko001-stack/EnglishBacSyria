@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087eaa">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="كلمات البكالوريا">
+<title>كلمات البكالوريا العلمي السوري</title>
+<style>
+:root{--blue:#087eaa;--pale:#eaf7fc;--ink:#183342;--muted:#5b7280}
+*{box-sizing:border-box}body{margin:0;background:#f3f7fa;color:var(--ink);font-family:Tahoma,Arial,sans-serif}
+header{background:linear-gradient(135deg,#087eaa,#20a6c8);color:white;padding:24px 18px 28px;border-radius:0 0 24px 24px}
+header h1{margin:0 0 8px;font-size:24px}header p{margin:0;line-height:1.7;font-size:14px}
+main{max-width:900px;margin:auto;padding:18px}.search{width:100%;padding:14px 16px;border:1px solid #d3e1e8;border-radius:14px;font-size:16px;background:white;outline-color:var(--blue)}
+.note{font-size:13px;color:var(--muted);line-height:1.8;margin:12px 2px}
+.columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:14px}
+.group{background:#fff;border:1px solid #deebf0;border-radius:16px;padding:12px;min-width:0}
+.group h2{font-size:17px;margin:0 0 10px;color:var(--blue);padding-bottom:9px;border-bottom:1px solid #e3eef3}
+.word{display:flex;align-items:center;gap:9px;text-align:right;width:100%;border:1px solid #e6eef2;background:white;border-radius:12px;padding:10px;margin:7px 0;cursor:pointer}
+.word:active{transform:scale(.99)}.num{display:grid;place-items:center;min-width:27px;height:28px;border-radius:8px;background:var(--pale);color:var(--blue);font-weight:bold;font-size:12px}
+.info{flex:1;min-width:0}.en{direction:ltr;text-align:left;font-weight:bold;font-size:17px;color:#087eaa;overflow-wrap:anywhere}.ar{margin-top:4px;color:#435b68;font-size:13px;line-height:1.5}
+.sound{font-size:18px;background:#edf8fc;border-radius:50%;width:34px;height:34px;flex-shrink:0;display:grid;place-items:center}
+.empty{text-align:center;padding:30px;color:var(--muted)}footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+</style></head>
+<body>
+<header><h1>📘 كلمات البكالوريا العلمي السوري</h1><p>اضغط على أي كلمة إنجليزية لسماع نطقها، وابحث بالإنجليزية أو بالعربية.</p></header>
+<main>
+<input id="search" class="search" type="search" placeholder="ابحث عن كلمة أو معناها بالعربي..." aria-label="بحث">
+<p class="note">اضغط على الكلمة لسماع النطق الآلي مؤقتًا. ويمكنك تشغيل تسجيلك الكامل لكل قائمة من الأزرار أدناه. سنربط صوتك بكل كلمة بعد تحديد مواضع الكلمات بدقة داخل التسجيلات.</p>
+<div id="recordings" class="columns" style="margin:12px 0">
+  <section class="group"><h2>🎙️ تسجيلاتك الصوتية</h2>
+    <button class="word" type="button" onclick="playList('audio/list1.oga')"><span class="info"><div class="en">تسجيل القائمة الأولى</div><div class="ar">تشغيل التسجيل الكامل</div></span><span class="sound">▶️</span></button>
+    <button class="word" type="button" onclick="playList('audio/list2.oga')"><span class="info"><div class="en">تسجيل القائمة الثانية</div><div class="ar">تشغيل التسجيل الكامل</div></span><span class="sound">▶️</span></button>
+    <button class="word" type="button" onclick="playList('audio/list3.oga')"><span class="info"><div class="en">تسجيل القائمة الثالثة</div><div class="ar">تشغيل التسجيل الكامل</div></span><span class="sound">▶️</span></button>
+    <button class="word" type="button" onclick="playList('audio/list4.oga')"><span class="info"><div class="en">تسجيل القائمة الرابعة</div><div class="ar">تشغيل التسجيل الكامل</div></span><span class="sound">▶️</span></button>
+    <p class="note">تمت إضافة تسجيل القائمة الرابعة أيضًا.</p>
+    <audio id="listPlayer" controls style="width:100%;margin-top:8px"></audio>
+  </section>
+</div>
+<div id="columns" class="columns"></div><div id="empty" class="empty" hidden>لا توجد كلمات مطابقة لبحثك.</div>
+</main><footer>نسخة تجريبية أولية — سنضيف النصوص والمواضيع الإضافية لاحقًا.</footer>
+<script>
+const groups = [
+{title:"القائمة الأولى (1)",words:[
+["Future","المستقبل"],["Career","المهنة / المسار المهني"],["ability","القدرة"],["explore","يستكشف"],["confidence","الثقة"],["clarity","الوضوح"],["role","الدور"],["parents","الوالدان"],["active","نشيط / فعّال"],["agents","وكلاء / عوامل"],["development","التطوير / التنمية"],["to opt","أن يختار"],["want","يريد"],["aspire","يطمح"],["misguided","مضلَّل"],["choosing","الاختيار"],["choice","الخيار"],["important","هام / مهم"],["burden","عبء"],["unreal","غير واقعي"],["expectations","توقعات"],["factors","عوامل"],["selection","الانتقاء / الاختيار"],["process","عملية"],["aptitude","موهبة / استعداد"]]},
+{title:"القائمة الثانية (2)",words:[
+["mirror","مرآة"],["personality","شخصية"],["strengths","نقاط القوة"],["weaknesses","نقاط الضعف"],["designed","مصمم"],["reveal","يكشف"],["well-informed","واسع المعرفة / على اطلاع"],["spend","يقضي / ينفق"],["field","مجال / حقل"],["interested in","مهتم بـ"],["courses","دورات / مساقات"],["desired","مرغوب"],["enable","يمكن / يمكّن"],["decisions","قرارات"],["Psychologists","علماء النفس"],["swayed","متأثر / منساق"],["peer","قرين / ند"],["pressure","ضغط"],["majority","الأغلبية"],["remuneration","أجر / مكافأة"],["hurd","غير واضح بالصورة"],["value","قيمة"],["earn","يكسب"],["match","يطابق / يلائم"],["aspirations","طموحات"]]},
+{title:"القائمة الثالثة (3)",words:[
+["provide","يزود / يقدم"],["satisfying","مرضي"],["comfortable","مريح"],["Modern","حديث"],["societies","مجتمعات"],["need","حاجة / يحتاج"],["professional","مهني / محترف"],["utility","منفعة / فائدة"],["worker","عامل"],["garbage","قمامة"],["collector","جامع (القمامة)"],["farmer","مزارع"],["nurse","ممرض / ممرضة"],["engineer","مهندس"],["teacher","معلم"],["professor","أستاذ جامعي"],["demotivation","فقدان الحافز / إحباط"],["impact","تأثير / أثر"],["mental","عقلي / ذهني"],["health","صحة"],["rejecting","رفض"],["gather","يجمع"],["deciding","اتخاذ القرار"],["suitable","مناسب"],["dreams","أحلام"]]},
+{title:"القائمة الرابعة (4)",words:[
+["Researchers","باحثون"],["self-reflection","التأمل الذاتي"],["guided","موجّه / مرشد"],["activities","أنشطة"],["core","جوهري / أساسي"],["values","قيم"],["path","مسار"],["right","صحيح / حق"],["",""],["","",""]]}
+];
+// Correct the last column from the photo: it has eight words, then the remainder is blank in the photographed list.
+groups[3].words = [
+["Researchers","باحثون"],["self-reflection","التأمل الذاتي"],["guided","موجّه / مرشد"],["activities","أنشطة"],["core","جوهري / أساسي"],["values","قيم"],["path","مسار"],["right","صحيح / حق"]
+];
+const search=document.getElementById('search'), columns=document.getElementById('columns'), empty=document.getElementById('empty');
+function playList(src){
+ const player=document.getElementById('listPlayer');
+ player.src=src; player.play().catch(()=>alert('اضغط على زر التشغيل في مشغل الصوت.'));
+}
+function speak(word){
+ if(!('speechSynthesis' in window)){alert('هذا المتصفح لا يدعم النطق الصوتي. جرّب Chrome وتأكد من تفعيل تحويل النص إلى كلام في الهاتف.');return;}
+ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(word);u.lang='en-GB';u.rate=.82;
+ const voices=speechSynthesis.getVoices();const v=voices.find(x=>x.lang&&x.lang.toLowerCase().startsWith('en-gb'))||voices.find(x=>x.lang&&x.lang.toLowerCase().startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);
+}
+function render(){
+ const q=search.value.trim().toLowerCase();columns.innerHTML='';let count=0;
+ groups.forEach((g,gi)=>{const filtered=g.words.filter(([en,ar])=>en.toLowerCase().includes(q)||ar.includes(q));if(!filtered.length)return;count+=filtered.length;
+ const section=document.createElement('section');section.className='group';const h=document.createElement('h2');h.textContent=g.title;section.appendChild(h);
+ filtered.forEach(([en,ar])=>{const originalIndex=g.words.findIndex(w=>w[0]===en)+1;const b=document.createElement('button');b.type='button';b.className='word';
+ const num=document.createElement('span');num.className='num';num.textContent=originalIndex;
+ const info=document.createElement('span');info.className='info';const e=document.createElement('div');e.className='en';e.textContent=en;const a=document.createElement('div');a.className='ar';a.textContent=ar;info.append(e,a);
+ const icon=document.createElement('span');icon.className='sound';icon.textContent='🔊';b.append(num,info,icon);b.addEventListener('click',()=>speak(en));section.appendChild(b);});columns.appendChild(section);
+ });empty.hidden=count!==0;
+}
+search.addEventListener('input',render);render();
+</script><script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {})); }</script>
+</body></html>
